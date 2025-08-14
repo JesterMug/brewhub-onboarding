@@ -6,6 +6,39 @@
       <sourceFolder url="file://$MODULE_DIR$/brewhub_contact/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/brewhub_contact/tests" isTestSource="true" packagePrefix="App\Test\" />
       <sourceFolder url="file://$MODULE_DIR$/brewhub_contact/vendor/cakephp/cakephp/tests" isTestSource="true" packagePrefix="Cake\Test\" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/tmp/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/tmp/sessions" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/tmp/tests" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/brick" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/cakephp" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/dealerdirect" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/doctrine" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/jasny" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/josegonzalez" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/justinrainbow" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/laminas" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/league" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/m1" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/marc-mabe" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/mobiledetect" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/myclabs" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/nikic" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/phar-io" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/phpstan" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/psr" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/react" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/robmorgan" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/sebastian" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/seld" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/slevomat" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/squizlabs" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/staabm" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/theseer" />
+      <excludeFolder url="file://$MODULE_DIR$/brewhub_db/vendor/twig" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
