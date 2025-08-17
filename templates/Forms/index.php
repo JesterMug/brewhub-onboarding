@@ -1,12 +1,12 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var iterable<\App\Model\Entity\Form> $form
+ * @var iterable<\App\Model\Entity\Form> $forms
  */
 ?>
-<div class="form index content">
+<div class="forms index content">
     <?= $this->Html->link(__('New Form'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Form') ?></h3>
+    <h3><?= __('Forms') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($form as $form): ?>
+                <?php foreach ($forms as $form): ?>
                 <tr>
                     <td><?= h($form->id) ?></td>
                     <td><?= h($form->first_name) ?></td>

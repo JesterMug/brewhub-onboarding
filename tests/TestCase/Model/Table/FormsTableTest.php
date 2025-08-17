@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\FormTable;
+use App\Model\Table\FormsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\FormTable Test Case
+ * App\Model\Table\FormsTable Test Case
  */
-class FormTableTest extends TestCase
+class FormsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\FormTable
+     * @var \App\Model\Table\FormsTable
      */
-    protected $Form;
+    protected $Forms;
 
     /**
      * Fixtures
@@ -24,7 +24,7 @@ class FormTableTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Form',
+        'app.Forms',
     ];
 
     /**
@@ -35,8 +35,8 @@ class FormTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Form') ? [] : ['className' => FormTable::class];
-        $this->Form = $this->getTableLocator()->get('Form', $config);
+        $config = $this->getTableLocator()->exists('Forms') ? [] : ['className' => FormsTable::class];
+        $this->Forms = $this->getTableLocator()->get('Forms', $config);
     }
 
     /**
@@ -46,7 +46,7 @@ class FormTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Form);
+        unset($this->Forms);
 
         parent::tearDown();
     }
@@ -55,7 +55,7 @@ class FormTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @link \App\Model\Table\FormTable::validationDefault()
+     * @link \App\Model\Table\FormsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {

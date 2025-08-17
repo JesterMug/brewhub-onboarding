@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace App\Controller;
 
 /**
- * Form Controller
+ * Forms Controller
  *
- * @property \App\Model\Table\FormTable $Form
+ * @property \App\Model\Table\FormsTable $Forms
  */
-class FormController extends AppController
+class FormsController extends AppController
 {
     /**
      * Index method
@@ -17,10 +17,10 @@ class FormController extends AppController
      */
     public function index()
     {
-        $query = $this->Form->find();
-        $form = $this->paginate($query);
+        $query = $this->Forms->find();
+        $forms = $this->paginate($query);
 
-        $this->set(compact('form'));
+        $this->set(compact('forms'));
     }
 
     /**
@@ -32,7 +32,7 @@ class FormController extends AppController
      */
     public function view($id = null)
     {
-        $form = $this->Form->get($id, contain: []);
+        $form = $this->Forms->get($id, contain: []);
         $this->set(compact('form'));
     }
 
@@ -43,10 +43,10 @@ class FormController extends AppController
      */
     public function add()
     {
-        $form = $this->Form->newEmptyEntity();
+        $form = $this->Forms->newEmptyEntity();
         if ($this->request->is('post')) {
-            $form = $this->Form->patchEntity($form, $this->request->getData());
-            if ($this->Form->save($form)) {
+            $form = $this->Forms->patchEntity($form, $this->request->getData());
+            if ($this->Forms->save($form)) {
                 $this->Flash->success(__('The form has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -65,10 +65,10 @@ class FormController extends AppController
      */
     public function edit($id = null)
     {
-        $form = $this->Form->get($id, contain: []);
+        $form = $this->Forms->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $form = $this->Form->patchEntity($form, $this->request->getData());
-            if ($this->Form->save($form)) {
+            $form = $this->Forms->patchEntity($form, $this->request->getData());
+            if ($this->Forms->save($form)) {
                 $this->Flash->success(__('The form has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
@@ -88,8 +88,8 @@ class FormController extends AppController
     public function delete($id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
-        $form = $this->Form->get($id);
-        if ($this->Form->delete($form)) {
+        $form = $this->Forms->get($id);
+        if ($this->Forms->delete($form)) {
             $this->Flash->success(__('The form has been deleted.'));
         } else {
             $this->Flash->error(__('The form could not be deleted. Please, try again.'));

@@ -6,16 +6,10 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * FormFixture
+ * FormsFixture
  */
-class FormFixture extends TestFixture
+class FormsFixture extends TestFixture
 {
-    /**
-     * Table name
-     *
-     * @var string
-     */
-    public string $table = 'form';
     /**
      * Init method
      *
@@ -25,12 +19,12 @@ class FormFixture extends TestFixture
     {
         $this->records = [
             [
-                'id' => '184ee01b-e98f-42e7-af46-874e0d2c28eb',
+                'id' => '',
                 'first_name' => 'Lorem ipsum dolor sit amet',
                 'last_name' => 'Lorem ipsum dolor sit amet',
                 'email' => 'Lorem ipsum dolor sit amet',
                 'message' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created' => 1755228447,
+                'created' => 1755396679,
             ],
         ];
         parent::init();

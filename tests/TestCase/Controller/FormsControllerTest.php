@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\FormController;
+use App\Controller\FormsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\FormController Test Case
+ * App\Controller\FormsController Test Case
  *
- * @link \App\Controller\FormController
+ * @link \App\Controller\FormsController
  */
-class FormControllerTest extends TestCase
+class FormsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,14 +22,14 @@ class FormControllerTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Form',
+        'app.Forms',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @link \App\Controller\FormController::index()
+     * @link \App\Controller\FormsController::index()
      */
     public function testIndex(): void
     {
@@ -40,7 +40,7 @@ class FormControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @link \App\Controller\FormController::view()
+     * @link \App\Controller\FormsController::view()
      */
     public function testView(): void
     {
@@ -51,7 +51,7 @@ class FormControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @link \App\Controller\FormController::add()
+     * @link \App\Controller\FormsController::add()
      */
     public function testAdd(): void
     {
@@ -62,7 +62,7 @@ class FormControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @link \App\Controller\FormController::edit()
+     * @link \App\Controller\FormsController::edit()
      */
     public function testEdit(): void
     {
@@ -73,7 +73,7 @@ class FormControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @link \App\Controller\FormController::delete()
+     * @link \App\Controller\FormsController::delete()
      */
     public function testDelete(): void
     {

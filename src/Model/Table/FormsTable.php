@@ -9,7 +9,7 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Form Model
+ * Forms Model
  *
  * @method \App\Model\Entity\Form newEmptyEntity()
  * @method \App\Model\Entity\Form newEntity(array $data, array $options = [])
@@ -27,7 +27,7 @@ use Cake\Validation\Validator;
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class FormTable extends Table
+class FormsTable extends Table
 {
     /**
      * Initialize method
@@ -39,7 +39,7 @@ class FormTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('form');
+        $this->setTable('forms');
         $this->setDisplayField('first_name');
         $this->setPrimaryKey('id');
 
@@ -56,13 +56,13 @@ class FormTable extends Table
     {
         $validator
             ->scalar('first_name')
-            ->maxLength('first_name', 32)
+            ->maxLength('first_name', 64)
             ->requirePresence('first_name', 'create')
             ->notEmptyString('first_name');
 
         $validator
             ->scalar('last_name')
-            ->maxLength('last_name', 32)
+            ->maxLength('last_name', 64)
             ->requirePresence('last_name', 'create')
             ->notEmptyString('last_name');
 
