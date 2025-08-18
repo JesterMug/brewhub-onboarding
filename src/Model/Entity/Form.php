@@ -13,7 +13,8 @@ use Cake\ORM\Entity;
  * @property string $last_name
  * @property string $email
  * @property string $message
- * @property \Cake\I18n\DateTime $created
+ * @property bool $replied_to
+ * @property \Cake\I18n\DateTime $date_created
  */
 class Form extends Entity
 {
@@ -31,6 +32,7 @@ class Form extends Entity
         'last_name' => true,
         'email' => true,
         'message' => true,
-        'created' => true,
+        'replied_to' => true,
+        'date_created' => true,
     ];
 }

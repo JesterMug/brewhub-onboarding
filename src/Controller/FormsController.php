@@ -63,19 +63,29 @@ class FormsController extends AppController
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function edit($id = null)
-    {
-        $form = $this->Forms->get($id, contain: []);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $form = $this->Forms->patchEntity($form, $this->request->getData());
-            if ($this->Forms->save($form)) {
-                $this->Flash->success(__('The form has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+    /**
+     * Mark as replied method
+     *
+     * @param string|null $id Form id.
+     * @return \Cake\Http\Response|null Redirects to index.
+     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+     */
+    public function mark($id = null)
+    {
+        $form = $this->Forms->get($id);
+        if ($form->replied_to) {
+            $this->Flash->error(__('The form has already been marked.'));
+        } else {
+            $form->replied_to = true;
+            if ($this->Forms->save($form)) {
+                $this->Flash->success(__('The form has been marked.'));
+            } else {
+                $this->Flash->error(__('The form could not be marked. Please, try again.'));
             }
-            $this->Flash->error(__('The form could not be saved. Please, try again.'));
         }
-        $this->set(compact('form'));
+
+        return $this->redirect(['action' => 'index']);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+/** @noinspection GrazieInspection */
 declare(strict_types=1);
 
 /**

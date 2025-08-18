@@ -5,25 +5,19 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Forms'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column column-80">
+    <div class="column">
         <div class="forms form content">
             <?= $this->Form->create($form) ?>
             <fieldset>
-                <legend><?= __('Add Form') ?></legend>
+                <legend><?= __('Your Contact Form') ?></legend>
                 <?php
-                    echo $this->Form->control('first_name');
-                    echo $this->Form->control('last_name');
-                    echo $this->Form->control('email');
-                    echo $this->Form->control('message');
+                    echo $this->Form->control('first_name', ['label' => __('First Name')]);
+                    echo $this->Form->control('last_name', ['label' => __('Last Name')]);
+                    echo $this->Form->control('email', ['label' => __('Your Email')]);
+                    echo $this->Form->control('message', ['label' => __('Your Message')]);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <?= $this->Form->button(__('Send Form')) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

@@ -24,8 +24,6 @@ use Cake\Validation\Validator;
  * @method iterable<\App\Model\Entity\Form>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Form> saveManyOrFail(iterable $entities, array $options = [])
  * @method iterable<\App\Model\Entity\Form>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Form>|false deleteMany(iterable $entities, array $options = [])
  * @method iterable<\App\Model\Entity\Form>|\Cake\Datasource\ResultSetInterface<\App\Model\Entity\Form> deleteManyOrFail(iterable $entities, array $options = [])
- *
- * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class FormsTable extends Table
 {
@@ -42,8 +40,6 @@ class FormsTable extends Table
         $this->setTable('forms');
         $this->setDisplayField('first_name');
         $this->setPrimaryKey('id');
-
-        $this->addBehavior('Timestamp');
     }
 
     /**
@@ -75,6 +71,14 @@ class FormsTable extends Table
             ->scalar('message')
             ->requirePresence('message', 'create')
             ->notEmptyString('message');
+
+        $validator
+            ->boolean('replied_to')
+            ->notEmptyString('replied_to');
+
+        $validator
+            ->dateTime('date_created')
+            ->notEmptyDateTime('date_created');
 
         return $validator;
     }

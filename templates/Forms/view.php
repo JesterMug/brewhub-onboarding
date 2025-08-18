@@ -5,38 +5,21 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Form'), ['action' => 'edit', $form->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Form'), ['action' => 'delete', $form->id], ['confirm' => __('Are you sure you want to delete # {0}?', $form->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Forms'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Form'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
-    <div class="column column-80">
+    <div class="column">
         <div class="forms view content">
-            <h3><?= h($form->first_name) ?></h3>
+            <h3>Enquiry from <?= h($form->first_name), ' ', h($form->last_name) ?></h3>
             <table>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= h($form->id) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('First Name') ?></th>
-                    <td><?= h($form->first_name) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Last Name') ?></th>
-                    <td><?= h($form->last_name) ?></td>
-                </tr>
-                <tr>
                     <th><?= __('Email') ?></th>
-                    <td><?= h($form->email) ?></td>
+                    <td><?= $this->Html->link(h($form->email), 'mailto:' . $form->email) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($form->created) ?></td>
+                    <th><?= __('Date Created') ?></th>
+                    <td><?= h($form->date_created) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Replied?') ?></th>
+                    <td><?= $form->replied_to ? __('Yes') : __('No'); ?></td>
                 </tr>
             </table>
             <div class="text">
