@@ -10,6 +10,12 @@ namespace App\Controller;
  */
 class FormsController extends AppController
 {
+    public function initialize(): void
+    {
+        parent::initialize();
+        $this->Authentication->allowUnauthenticated(['add']);
+    }
+
     /**
      * Index method
      *
@@ -30,7 +36,7 @@ class FormsController extends AppController
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function view($id = null)
+    public function view(?string $id = null)
     {
         $form = $this->Forms->get($id, contain: []);
         $this->set(compact('form'));
@@ -47,11 +53,10 @@ class FormsController extends AppController
         if ($this->request->is('post')) {
             $form = $this->Forms->patchEntity($form, $this->request->getData());
             if ($this->Forms->save($form)) {
-                $this->Flash->success(__('The form has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
+                $this->Flash->success(__('The form has been sent.'));
+                return $this->redirect(['action' => 'add']);
             }
-            $this->Flash->error(__('The form could not be saved. Please, try again.'));
+            $this->Flash->error(__('The form could not be sent. Please, try again.'));
         }
         $this->set(compact('form'));
     }
@@ -71,7 +76,7 @@ class FormsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function mark($id = null)
+    public function mark(?string $id = null)
     {
         $form = $this->Forms->get($id);
         if ($form->replied_to) {
@@ -95,7 +100,7 @@ class FormsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function delete(?string $id = null)
     {
         $this->request->allowMethod(['post', 'delete']);
         $form = $this->Forms->get($id);
