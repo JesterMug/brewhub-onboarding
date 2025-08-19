@@ -43,6 +43,7 @@ class PagesController extends AppController
      *   be found and not in debug mode.
      * @throws \Cake\View\Exception\MissingTemplateException In debug mode.
      */
+
     public function display(string ...$path): ?Response
     {
         if (!$path) {
