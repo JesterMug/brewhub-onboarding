@@ -50,14 +50,39 @@ class FormsController extends AppController
     public function add()
     {
         $form = $this->Forms->newEmptyEntity();
+        $session = $this->request->getSession();
+
         if ($this->request->is('post')) {
-            $form = $this->Forms->patchEntity($form, $this->request->getData());
+            $postedAnswer = trim((string)$this->request->getData('captcha_answer'));
+            $realAnswer = (string)$session->read('captcha.answer');
+
+            if ($realAnswer === '' || strcasecmp($postedAnswer, $realAnswer) !== 0) {
+                $this->Flash->error(__('Captcha is incorrect. Please try again.'));
+                $this->seedCaptcha();
+                $this->set(compact('form'));
+
+                return;
+            }
+
+            $data = $this->request->getData();
+            unset($data['captcha_answer']);
+
+            $form = $this->Forms->patchEntity($form, $data);
             if ($this->Forms->save($form)) {
-                $this->Flash->success(__('The form has been sent.'));
+                $session->delete('captcha.answer');
+                $session->delete('captcha.question');
+
+                $this->Flash->success(__('The form has been saved.'));
+
                 return $this->redirect(['action' => 'add']);
             }
+
             $this->Flash->error(__('The form could not be sent. Please, try again.'));
+            $this->seedCaptcha();
+        } else {
+            $this->seedCaptcha();
         }
+
         $this->set(compact('form'));
     }
 
@@ -111,5 +136,13 @@ class FormsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+
+    private function seedCaptcha(): void
+    {
+        $a = random_int(1, 9);
+        $b = random_int(1, 9);
+        $this->request->getSession()->write('captcha.question', "$a + $b = ?");
+        $this->request->getSession()->write('captcha.answer', (string)($a + $b));
     }
 }
