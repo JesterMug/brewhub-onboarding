@@ -11,20 +11,10 @@
             <fieldset>
                 <legend><?= __('Your Contact Form') ?></legend>
                 <?php
-                // 基本字段
-                echo $this->Form->control('first_name', ['label' => __('First Name')]);
-                echo $this->Form->control('last_name', ['label' => __('Last Name')]);
-                echo $this->Form->control('email', ['label' => __('Your Email')]);
-                echo $this->Form->control('message', ['label' => __('Your Message')]);
-
-                // Captcha 字段
-                $question = $this->getRequest()->getSession()->read('captcha.question') ?? '...';
-                echo $this->Form->control('captcha_answer', [
-                    'label' => __('Captcha: ') . h($question),
-                    'required' => true,
-                    'autocomplete' => 'off',
-                    'placeholder' => __('Enter your answer here')
-                ]);
+                    echo $this->Form->control('first_name', ['label' => __('First Name')]);
+                    echo $this->Form->control('last_name', ['label' => __('Last Name')]);
+                    echo $this->Form->control('email', ['label' => __('Your Email')]);
+                    echo $this->Form->control('message', ['label' => __('Your Message')]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Send Form')) ?>
