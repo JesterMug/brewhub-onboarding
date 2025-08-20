@@ -50,17 +50,17 @@ class FormsController extends AppController
     public function add()
     {
         $form = $this->Forms->newEmptyEntity();
-<<<<<<< src/Controller/FormsController.php
         $session = $this->request->getSession();
 
         if ($this->request->is('post')) {
             $postedAnswer = trim((string)$this->request->getData('captcha_answer'));
-            $realAnswer   = (string)$session->read('captcha.answer');
+            $realAnswer = (string)$session->read('captcha.answer');
 
             if ($realAnswer === '' || strcasecmp($postedAnswer, $realAnswer) !== 0) {
                 $this->Flash->error(__('Captcha is incorrect. Please try again.'));
                 $this->seedCaptcha();
                 $this->set(compact('form'));
+
                 return;
             }
 
@@ -73,6 +73,7 @@ class FormsController extends AppController
                 $session->delete('captcha.question');
 
                 $this->Flash->success(__('The form has been saved.'));
+
                 return $this->redirect(['action' => 'add']);
             }
 
@@ -80,8 +81,6 @@ class FormsController extends AppController
             $this->seedCaptcha();
         } else {
             $this->seedCaptcha();
-=======
->>>>>>> src/Controller/FormsController.php
         }
 
         $this->set(compact('form'));
