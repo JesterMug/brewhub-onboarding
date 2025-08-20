@@ -62,26 +62,43 @@ endif;
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Brewhub</title>
+    <title>BrewHub</title>
     <link rel="stylesheet" href="webroot/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar">
     <div class="container">
         <a href="<?= $this->Url->build('/') ?>" class="brand">BrewHub</a>
         <ul class="nav-links">
-            <li><a href="<?= $this->Url->build(['controller' => 'forms', 'action' => 'index']) ?>">View All Forms</a></li>
-            <li><a href="<?= $this->Url->build(['controller' => 'forms', 'action' => 'add']) ?>">Contact Us</a></li>
+            <li><a href="<?= $this->Url->build(['controller' => 'forms', 'action' => 'index']) ?>">Admin</a></li>
+            <li><a href="<?= $this->Url->build(['controller' => 'forms', 'action' => 'add']) ?>" class="btn btn-outline">Get in Touch</a></li>
         </ul>
     </div>
 </nav>
 
+
 <header class="hero">
-    <h1>Welcome to BrewHub</h1>
-    <p>This is innovation. And Coffee.</p>
+    <div class="hero-overlay">
+        <h1>Welcome to <span class="highlight">BrewHub</span></h1>
+        <p>Crafting coffee of outstanding quality.</p>
+    </div>
 </header>
 
-
+<section class="features container">
+    <div class="feature">
+        <h2>Premium blends</h2>
+        <p>Curated coffees roasted to perfection, tailored for every taste.</p>
+    </div>
+    <div class="feature">
+        <h2>Carefully crafted</h2>
+        <p>We bring a special level of passion and care to our brews.</p>
+    </div>
+    <div class="feature">
+        <h2>Merchandise</h2>
+        <p>The perfect paraphernalia to complement your cuppa your way.</p>
+    </div>
+</section>
 
 <footer class="footer">
     <p>&copy; <?= date('Y') ?> BrewHub. All Rights Reserved.</p>
