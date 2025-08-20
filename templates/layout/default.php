@@ -41,6 +41,12 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <div class="top-nav-links">
             <a rel="noopener" href="
             <?= $this->Url->build(['controller' => 'forms', 'action' => 'index']) ?>">List all Forms</a>
+            <?php
+            if ($this->Identity->isLoggedIn()) {
+                echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
+            }
+            ?>
+
         </div>
     </nav>
     <main class="main">

@@ -18,8 +18,28 @@
                     <td><?= h($form->date_created) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Replied?') ?></th>
-                    <td><?= $form->replied_to ? __('Yes') : __('No'); ?></td>
+                    <th><?= __('Responded') ?></th>
+                    <td>
+                        <?php if ($form->replied_to) : ?>
+                            <?= $this->Form->create($form, ['url' => ['action' => 'mark', $form->id]]) ?>
+                            <?= $this->Form->control('replied_to', [
+                                'type' => 'checkbox',
+                                'label' => 'Mark as replied',
+                                'checked' => true,
+                                'onchange' => 'this.form.submit();',
+                            ]) ?>
+                            <?= $this->Form->end() ?>
+                        <?php else : ?>
+                            <?= $this->Form->create($form, ['url' => ['action' => 'mark', $form->id]]) ?>
+                            <?= $this->Form->control('replied_to', [
+                                'type' => 'checkbox',
+                                'label' => 'Mark as replied',
+                                'checked' => false,
+                                'onchange' => 'this.form.submit();',
+                            ]) ?>
+                            <?= $this->Form->end() ?>
+                        <?php endif; ?>
+                    </td>
                 </tr>
             </table>
             <div class="text">

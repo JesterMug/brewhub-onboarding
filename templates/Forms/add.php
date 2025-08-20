@@ -21,7 +21,7 @@
                     'label' => __('Captcha: ') . h($question),
                     'required' => true,
                     'autocomplete' => 'off',
-                    'placeholder' => __('Enter your answer here')
+                    'placeholder' => __('Enter your answer here'),
                 ]);
                 ?>
             </fieldset>
