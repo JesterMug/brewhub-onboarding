@@ -5,7 +5,7 @@
  */
 ?>
 <div class="users index content">
-    <?= $this->Html->link(__('New User'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('New User'), ['controller' => 'Auth', 'action' => 'register'], ['class' => 'button float-right']) ?>
     <h3><?= __('Users') ?></h3>
     <div class="table-responsive">
         <table>
@@ -18,7 +18,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($users as $user) : ?>
                 <tr>
                     <td><?= h($user->email) ?></td>
                     <td><?= h($user->first_name) ?></td>
@@ -32,7 +32,7 @@
                             [
                                 'method' => 'delete',
                                 'confirm' => __('Are you sure you want to delete # {0}?', $user->id),
-                            ]
+                            ],
                         ) ?>
                     </td>
                 </tr>
