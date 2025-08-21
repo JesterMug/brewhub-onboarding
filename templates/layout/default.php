@@ -39,8 +39,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <a href="<?= $this->Url->build('/') ?>"><span>Brew </span>Hub</a>
         </div>
         <div class="top-nav-links">
-            <a rel="noopener" href="
-            <?= $this->Url->build(['controller' => 'forms', 'action' => 'index']) ?>">List all Forms</a>
+            <?php
+            if ($this->Identity->isLoggedIn()) {
+                echo $this->Html->link('All forms', ['controller' => 'forms', 'action' => 'index']);
+//                echo $this->Html->link('Register new accounts', ['controller' => 'Auth', 'action' => 'register']);
+                echo $this->Html->link('All accounts', ['controller' => 'Users', 'action' => 'index']);
+                echo $this->Html->link('Logout', ['controller' => 'Auth', 'action' => 'logout']);
+            }
+            if (!$this->Identity->isLoggedIn()) {
+                echo $this->Html->link('Go to Homepage', '/');
+            }
+            ?>
+
         </div>
     </nav>
     <main class="main">

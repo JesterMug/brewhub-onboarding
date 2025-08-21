@@ -5,7 +5,6 @@
  */
 ?>
 <div class="forms index content">
-    <?= $this->Html->link(__('New Form'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Forms') ?></h3>
     <div class="table-responsive">
         <table>
@@ -14,7 +13,7 @@
                     <th><?= $this->Paginator->sort('full_name', 'Full Name') ?></th>
                     <th><?= $this->Paginator->sort('email', 'Email Address') ?></th>
                     <th><?= $this->Paginator->sort('date_created', 'Date') ?></th>
-                    <th><?= $this->Paginator->sort('replied_to', 'Replied?') ?></th>
+                    <th><?= $this->Paginator->sort('replied_to', 'Responded') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
@@ -27,7 +26,6 @@
                     <td><?= $form->replied_to ? __('Yes') : __('No'); ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('View'), ['action' => 'view', $form->id]) ?>
-                        <?= $this->Html->link(__('Mark as sent'), ['action' => 'mark', $form->id]) ?>
                         <?= $this->Form->postLink(
                             __('Delete'),
                             ['action' => 'delete', $form->id],

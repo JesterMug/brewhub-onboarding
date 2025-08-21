@@ -49,7 +49,7 @@ class AuthController extends AppController
         if ($this->request->is('post')) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success('You have been registered. Please log in. ');
+                $this->Flash->success('The account has been registered. ');
 
                 return $this->redirect(['action' => 'login']);
             }

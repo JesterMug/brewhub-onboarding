@@ -7,11 +7,11 @@ use Cake\Core\Configure;
 
 $debug = Configure::read('debug');
 
-$this->layout = 'login';
-$this->assign('title', 'Login');
+//$this->layout = 'login';
+//$this->assign('title', 'Login');
 ?>
 <div class="container login">
-    <div class="row">
+    <div class="column">
         <div class="column column-50 column-offset-25">
             <div class="users form content">
 
@@ -36,24 +36,16 @@ $this->assign('title', 'Login');
                         'type' => 'email',
                         'required' => true,
                         'autofocus' => true,
-                        'value' => $debug ? "john.doe@email.com" : "",
                     ]);
                     echo $this->Form->control('password', [
                         'type' => 'password',
                         'required' => true,
-                        'value' => $debug ? 'password' : '',
                     ]);
                     ?>
                 </fieldset>
-
                 <?= $this->Form->button('Login') ?>
-                <?= $this->Html->link('Forgot password?', ['controller' => 'Auth', 'action' => 'forgetPassword'], ['class' => 'button button-outline']) ?>
+                <?= $this->Html->link('Forgot password?', ['controller' => 'Auth', 'action' => 'forgetPassword']) ?>
                 <?= $this->Form->end() ?>
-
-                <hr class="hr-between-buttons">
-
-                <?= $this->Html->link('Register new user', ['controller' => 'Auth', 'action' => 'register'], ['class' => 'button button-clear']) ?>
-                <?= $this->Html->link('Go to Homepage', '/', ['class' => 'button button-clear']) ?>
             </div>
         </div>
     </div>
